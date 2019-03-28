@@ -107,7 +107,7 @@ let theCookie = new CookieBuilder();
 //the script below fires when your page is loaded
 window.onload = function(){
     //2. TO DO:  add a console log
-    console.log("program running");
+    console.log("program running.");
     //3. TO DO:  call the init function of theCookie
     theCookie.init();
 };
