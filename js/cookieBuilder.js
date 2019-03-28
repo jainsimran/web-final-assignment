@@ -28,12 +28,12 @@ CookieBuilder.prototype.listIngredients = function(){
     //18: TO DO: make a variable called ingredientsList have it store the result of a query selector looking for #ingredients >ul
     var ingredientsList = document.querySelector("#ingredients >ul");
     //19: TO DO: uncomment the forEach and add a console log describing what it is doing
-    this.cookieIngredients.forEach(ingred =>{
-        let item = document.createElement("li");
-        item.innerText = ingred;
-        ingredientsList.appendChild(item);
-        console.log(``);
-    });
+    // this.cookieIngredients.forEach(ingred =>{
+    //     let item = document.createElement("li");
+    //     item.innerText = ingred;
+    //     ingredientsList.appendChild(item);
+    //     console.log(``);
+    // });
 };
 CookieBuilder.prototype.listSteps = function(){
     let stepsList = document.querySelector("#steps ol");
