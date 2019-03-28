@@ -20,30 +20,30 @@ function CookieBuilder(){
 }
 CookieBuilder.prototype.setTitle = function(){
     //16: TO DO: use querySelector to find the h1 tag and set its title to this.title
-    let titleSetup = document.querySelector("h1").innerText = this.title;
+    document.querySelector("h1").innerText = this.title;
     //17: TO DO: use querySelector to find header>h2 tag and set its title to this.descriptor
-    let header2 = document.querySelector("header>h2").innerText = this.descriptor;
+    document.querySelector("header>h2").innerText = this.descriptor;
 };
 CookieBuilder.prototype.listIngredients = function(){
     //18: TO DO: make a variable called ingredientsList have it store the result of a query selector looking for #ingredients >ul
-    var ingredientsList = document.querySelector("#ingredients >ul");
+    let ingredientsList = document.querySelector("#ingredients >ul");
     //19: TO DO: uncomment the forEach and add a console log describing what it is doing
-    // this.cookieIngredients.forEach(ingred =>{
-    //     let item = document.createElement("li");
-    //     item.innerText = ingred;
-    //     ingredientsList.appendChild(item);
-    //     console.log(``);
-    // });
+    this.cookieIngredients.forEach(ingred =>{
+        let item = document.createElement("li");
+        item.innerText = ingred;
+        ingredientsList.appendChild(item);
+        console.log(`we are add ingredients in list by creating element li from data.json`);
+    });
 };
 CookieBuilder.prototype.listSteps = function(){
     let stepsList = document.querySelector("#steps ol");
     this.cookieSteps.forEach(stp => {
         //20: TO DO: create a variable called stepItem that creates an li tag(eg. document.createElement("li"))
-
+        let stepItem = document.createElement("li");
         //21: TO DO: make the inner text of stepItem equal to stp
-
+        stepItem.innerText = stp;
         //22: TO DO: append stepItem to the end of stepsList
-
+        stepsList.appendChild(stepItem);
     })
 }
 CookieBuilder.prototype.listNotes = function(){
@@ -53,6 +53,7 @@ CookieBuilder.prototype.listNotes = function(){
         let theCopy = document.createElement("p");
         theCopy.innerHTML = nt;
         notesArea.appendChild(theCopy);
+        console.log(`we are creating new p tag and replacing it with notesArea from data.json`);
     })
 }
 CookieBuilder.prototype.setPrepTime = function(){
@@ -88,21 +89,21 @@ CookieBuilder.prototype.populateData = function(resp){
 }
 CookieBuilder.prototype.gatherData = function(){
     //6.  TO DO: In the line below use the fetch command to get data.json
-    fetch('data.json')
+    fetch('../data.json')
     .then(resp => {
         return resp.json();
     })
     .then(resp => {
         //7. TO DO: and a console log to show the contents of resp
-        console.log(`resp`);
+        console.log(resp);
         //8. TO DO: call populateData and send it resp
-        populateData(resp);
+        this.populateData(resp);
     });
 }
 
 //1. TO DO: make an instance of CookieBuilder and call it theCookie
 
-let theCookie = new CookieBuilder;
+let theCookie = new CookieBuilder();
 //the script below fires when your page is loaded
 window.onload = function(){
     //2. TO DO:  add a console log
