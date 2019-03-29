@@ -1,12 +1,8 @@
 /*
 Welcome to the final assignment
-
 In this assignment we will use the skills we have practiced throughout the semester
-
 Each task has a TO DO and a number.  Solve each task in order.
-
 Use your node scripts, and run the console in your browser to keep track of your progress
-
 The list of questions in order is in the readme.md and can either be viewed in your editor or online at the repo
 */
 
@@ -89,7 +85,7 @@ CookieBuilder.prototype.populateData = function(resp){
 }
 CookieBuilder.prototype.gatherData = function(){
     //6.  TO DO: In the line below use the fetch command to get data.json
-    fetch('../data.json')
+    fetch('data.json')
     .then(resp => {
         return resp.json();
     })
@@ -102,7 +98,6 @@ CookieBuilder.prototype.gatherData = function(){
 }
 
 //1. TO DO: make an instance of CookieBuilder and call it theCookie
-
 let theCookie = new CookieBuilder();
 //the script below fires when your page is loaded
 window.onload = function(){
