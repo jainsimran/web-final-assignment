@@ -2,6 +2,13 @@ header{
     background: $darkBgCol;
     color: $stdTextCol;
     font-size: $stdTextSize;
+    button{
+      color: white;
+      background-color: darkgreen;
+      margin: 0 auto;
+      padding: 5px;
+      }
+    }
     h1{
         color: darken($titleCol, 20%);
         text-align: center;
