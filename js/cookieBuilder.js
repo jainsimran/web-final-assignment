@@ -23,6 +23,7 @@ CookieBuilder.prototype.setTitle = function(){
 CookieBuilder.prototype.listIngredients = function(){
     //18: TO DO: make a variable called ingredientsList have it store the result of a query selector looking for #ingredients >ul
     let ingredientsList = document.querySelector("#ingredients >ul");
+    ingredientsList.innerHTML = null;
     //19: TO DO: uncomment the forEach and add a console log describing what it is doing
     this.cookieIngredients.forEach(ingred =>{
         let item = document.createElement("li");
@@ -33,6 +34,7 @@ CookieBuilder.prototype.listIngredients = function(){
 };
 CookieBuilder.prototype.listSteps = function(){
     let stepsList = document.querySelector("#steps ol");
+    stepsList.innerHTML = null;
     this.cookieSteps.forEach(stp => {
         //20: TO DO: create a variable called stepItem that creates an li tag(eg. document.createElement("li"))
         let stepItem = document.createElement("li");
@@ -45,6 +47,7 @@ CookieBuilder.prototype.listSteps = function(){
 CookieBuilder.prototype.listNotes = function(){
     //23: TO DO:  add a console log to this function describing what it does
     let notesArea = document.querySelector("#steps article");
+    notesArea.innerHTML = null;
     this.notes.forEach(nt => {
         let theCopy = document.createElement("p");
         theCopy.innerHTML = nt;
