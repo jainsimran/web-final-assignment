@@ -28,7 +28,7 @@ CookieBuilder.prototype.listIngredients = function(){
         let item = document.createElement("li");
         item.innerText = ingred;
         ingredientsList.appendChild(item);
-        console.log(`we are add ingredients in list by creating element li from data.json`);
+        console.log(`we creating new element li and adding in unoreded list using appendChild. The data is coming from data.json`);
     });
 };
 CookieBuilder.prototype.listSteps = function(){
@@ -49,7 +49,7 @@ CookieBuilder.prototype.listNotes = function(){
         let theCopy = document.createElement("p");
         theCopy.innerHTML = nt;
         notesArea.appendChild(theCopy);
-        console.log(`we are creating new p tag and replacing it with notesArea from data.json`);
+        console.log(`we are creating new p tag and adding in notesArea using appendChild. The data is coming from data.json.`);
     })
 }
 CookieBuilder.prototype.setPrepTime = function(){
@@ -83,6 +83,18 @@ CookieBuilder.prototype.populateData = function(resp){
     this.setPrepTime();
     this.setDifficultyLevel();
 }
+CookieBuilder.prototype.switchRecipe = function(recipe){
+    document.getElementsByName('recipe-1')[0].innerText = recipe.recipe1.title;
+    document.getElementsByName('recipe-2')[0].innerText = recipe.recipe2.title;
+
+    document.getElementsByName('recipe-1')[0].addEventListener("click", () => {
+      this.populateData(recipe.recipe1);
+    });
+    document.getElementsByName('recipe-2')[0].addEventListener("click", () => {
+      this.populateData(recipe.recipe2);
+    });
+
+}
 CookieBuilder.prototype.gatherData = function(){
     //6.  TO DO: In the line below use the fetch command to get data.json
     fetch('data.json')
@@ -93,7 +105,8 @@ CookieBuilder.prototype.gatherData = function(){
         //7. TO DO: and a console log to show the contents of resp
         console.log(resp);
         //8. TO DO: call populateData and send it resp
-        this.populateData(resp);
+        // this.populateData(resp);
+        this.switchRecipe(resp);
     });
 }
 
